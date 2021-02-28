@@ -1,3 +1,8 @@
+# Cache created by python
 *__pycache__*
+
+# PyCharm directory
 .idea/
+
+# Tests
 pruebas*.py
