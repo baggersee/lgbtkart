@@ -2,7 +2,7 @@ import tweepy
 import json
 
 
-def get_data():
+def get_replies():
     with open("twitter/keys.json", "r") as infile:
         api_key, api_skey, access_token, access_stoken = json.load(infile).values()
 
