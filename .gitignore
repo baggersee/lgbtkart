@@ -6,6 +6,7 @@
 
 # Tests
 pruebas*.py
+test*.py
 
 # Virtual Environment
 /venv
