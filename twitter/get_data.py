@@ -10,3 +10,9 @@ def get_data():
     auth.set_access_token(access_token, access_stoken)
 
     api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
+
+    tweet_id = '1364643149457592320'
+
+    tweet = api.get_status(tweet_id)
+    print(tweet.text)
+    return
