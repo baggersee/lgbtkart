@@ -14,8 +14,9 @@ def get_data():
     name = 'tendobrainrot'
     tweet_id = '1364643149457592320'
 
+    n_tries = 1000
     replies = []
-    for tweet in tweepy.Cursor(api.search, q='to:' + name, result_type='recent', timeout=999999).items(10):
+    for tweet in tweepy.Cursor(api.search, q='to:' + name, result_type='recent', timeout=999999).items(n_tries):
         if hasattr(tweet, 'in_reply_to_status_id_str'):
             if tweet.in_reply_to_status_id_str == tweet_id:
                 replies.append(tweet.text[15:])
