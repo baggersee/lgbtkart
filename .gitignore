@@ -6,3 +6,10 @@
 
 # Tests
 pruebas*.py
+test*.py
+
+# Virtual Environment
+/venv
+
+# API keys
+twitter/keys.json
