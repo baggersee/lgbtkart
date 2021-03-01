@@ -22,9 +22,9 @@ with open("cfg/sexuality.json", "r") as infile:
 # Load index values and accepted keywords (Mario Kart Characters)
 with open("cfg/kart.json", "r") as infile:
     kart_dict = json.load(infile)
-    index = list(kart_dict.keys())
+    indices = list(kart_dict.keys())
 
-results = pd.DataFrame(0, index=index, columns=columns)
+results = pd.DataFrame(0, index=indices, columns=columns)
 
 for reply in replies:
     i, j = [], []
@@ -41,4 +41,18 @@ for reply in replies:
         for idx in reply_indices:
             results.at[idx[1], idx[0]] += 1
 
+indices.append("TOTAL")
+for c in columns:
+    total = results[c].sum()
+    results.at["TOTAL", c] = total
+
+columns.append("TOTAL")
+for i in indices:
+    total = results.loc[i].sum()
+    if total == 0:
+        results = results.drop(i)
+    else:
+        results.at[i, "TOTAL"] = total
+
 print(results)
+results.to_csv('results.csv', encoding="utf-8", sep=",")
