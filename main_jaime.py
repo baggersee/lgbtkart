@@ -11,10 +11,10 @@ except FileNotFoundError:
 
 pprint(replies)
 
-with open("sexuality.json", "r") as infile:
+with open("cfg/sexuality.json", "r") as infile:
     sexuality_dict = json.load(infile)
 
-with open("kart.json", "r") as infile:
+with open("cfg/kart.json", "r") as infile:
     kart_dict = json.load(infile)
 
 results = pd.DataFrame(0, index=list(kart_dict.keys()),

@@ -12,4 +12,4 @@ test*.py
 /venv
 
 # API keys
-twitter/keys.json
+cfg/keys.json
