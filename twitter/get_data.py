@@ -21,7 +21,7 @@ def get_replies():
             if tweet.in_reply_to_status_id_str == tweet_id:
                 replies.append(tweet.text[15:])
 
-    with open("twitter/data.txt", "w") as f:
+    with open("twitter/replies.txt", "w") as f:
         f.write('\n'.join(replies))
 
     return replies
