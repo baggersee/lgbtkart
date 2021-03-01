@@ -36,23 +36,27 @@ for reply in replies:
         if any([k in reply for k in kart_kwrds]):
             j.append(kart_key)
 
+    # Get all combinations of matches and add 1 to that position of the table
     reply_indices = list(product(i, j))
     if reply_indices:
         for idx in reply_indices:
             results.at[idx[1], idx[0]] += 1
 
+# Find the sum of each column
 indices.append("TOTAL")
 for c in columns:
     total = results[c].sum()
     results.at["TOTAL", c] = total
 
+# Find the sum of reach row
 columns.append("TOTAL")
 for i in indices:
     total = results.loc[i].sum()
+    # Drop all characters that are not loved
     if total == 0:
         results = results.drop(i)
     else:
         results.at[i, "TOTAL"] = total
 
-print(results)
 results.to_csv('results.csv', encoding="utf-8", sep=",")
+
