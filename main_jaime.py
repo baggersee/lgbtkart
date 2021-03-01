@@ -1,4 +1,6 @@
 from twitter.get_data import get_replies
+from pprint import pprint
+import pandas as pd
 import json
 
 try:
@@ -7,7 +9,7 @@ try:
 except FileNotFoundError:
     replies = get_replies(100)
 
-print(replies)
+pprint(replies)
 
 with open("sexuality.json", "r") as infile:
     sexuality_dict = json.load(infile)
@@ -15,6 +17,10 @@ with open("sexuality.json", "r") as infile:
 with open("kart.json", "r") as infile:
     kart_dict = json.load(infile)
 
-results = {key: 0 for key in sexuality_dict}
+results = pd.DataFrame(0, index=list(kart_dict.keys()),
+                       columns=list(sexuality_dict.keys()))
 
-print(results)
+for reply in replies:
+    pass
+
+pprint(results)
