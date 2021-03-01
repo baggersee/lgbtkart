@@ -7,9 +7,10 @@
 # Tests
 pruebas*.py
 test*.py
+twitter/replies.txt
 
 # Virtual Environment
 /venv
 
 # API keys
-cfg/keys.json
+twitter/keys.json
