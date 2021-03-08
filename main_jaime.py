@@ -1,6 +1,6 @@
 from twitter.get_data import get_replies
+from results.plotting import plot_results
 from itertools import product
-import matplotlib.pyplot as plt
 import pandas as pd
 import json
 
@@ -59,13 +59,7 @@ for i in indices:
     else:
         results.at[i, "TOTAL"] = total
 
-results.to_csv('results.csv', encoding="utf-8", sep=",")
+results.to_csv('results/results.csv', encoding="utf-8", sep=",")
 
 # Plot the results
-for c in columns:
-    results[c] /= results[c].sum()
-results.pop("TOTAL")
-results = results.drop("TOTAL")
-
-ax = results.plot.bar()
-plt.show()
+plot_results()
