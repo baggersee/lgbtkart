@@ -1,5 +1,6 @@
 from twitter.get_data import get_replies
 from itertools import product
+import matplotlib.pyplot as plt
 import pandas as pd
 import json
 
@@ -42,21 +43,33 @@ for reply in replies:
         for idx in reply_indices:
             results.at[idx[1], idx[0]] += 1
 
+results_csv = results.copy()
+
 # Find the sum of each column
 indices.append("TOTAL")
 for c in columns:
-    total = results[c].sum()
-    results.at["TOTAL", c] = total
+    total = results_csv[c].sum()
+    results[c] /= total
+    results_csv.at["TOTAL", c] = total
 
 # Find the sum of reach row
 columns.append("TOTAL")
 for i in indices:
-    total = results.loc[i].sum()
+    try:
+        if results.loc[i].sum() < 0.05:
+            results = results.drop(i)
+    except KeyError:
+        pass
+    total = results_csv.loc[i].sum()
     # Drop all characters that are not loved
     if total == 0:
-        results = results.drop(i)
+        results_csv = results_csv.drop(i)
     else:
-        results.at[i, "TOTAL"] = total
+        results_csv.at[i, "TOTAL"] = total
 
-results.to_csv('results.csv', encoding="utf-8", sep=",")
+results_csv.to_csv('results.csv', encoding="utf-8", sep=",")
 
+# Plot the results
+ax = results.plot.bar(rot=70)
+ax.set_ylabel("Percentage")
+plt.show()
