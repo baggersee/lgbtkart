@@ -1,4 +1,5 @@
-
+import pandas as pd
+from keywords import characters,orientations
 
 #%% STEP 1: Importing the answers and storing them in a list
 
@@ -7,7 +8,14 @@ with open('data.txt','r', encoding="utf8" ) as file_answers:
     
 file_answers.close()
 
+
+
 #%% STEP 2: Getting the data
+
+data = pd.DataFrame(0, index=list(characters), columns=list(orientations))
+
+
+"""
 
 from keywords import orientations_list, characters_list
 
@@ -33,7 +41,7 @@ for j in range(n):
 
 
 n = len(list_data)
-
+"""
 #%% STEP 3: Histogram
 
 
