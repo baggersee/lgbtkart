@@ -1,4 +1,7 @@
-""" 
+"""
+The detection is valid when there are no alphabetic characters at the begining 
+ or at the end of the hypothetical detection.
+ 
 SENTENCES THT CAN GET WORNG DATA:
     
 'I am not gay but straight'
@@ -7,186 +10,38 @@ SENTENCES THT CAN GET WORNG DATA:
 'I'm hetro, and use toad': bad spelling!
 'Bisexual and D R Y  B O N E S'
 """
-def keyword_detection(sentence,keyword):
 
+import string
+
+def keyword_detection(sentence,keyword):
+    
+    sentence = sentence + " " # avoids index out of range
     letters = string.ascii_lowercase # import the alphabet in lowercase    
-    n_keyword1 = len(list(keyword)) # i think its not needed to convert it into a list    
+    n_keyword = len(list(keyword)) # i think its not needed to convert it into a list    
     ind = sentence.find(keyword) # first index of a possible match
     
-    if ind1 == -1:          
-        detection1 = False
-    
-        
-    elif ind1 == 0:  #possible match at the beggining
-        
-        if sentence[ind1 + n_keyword1 ] in letters: 
-            detection1 = False # avoids false data like 'strightforward'
-            
-        else:                
-            detection1 = True
-            
-    else:
-    
-        if sentence[ind1-1] in letters or sentence[ind1 + n_keyword1 ] in letters:
-            detection1 =  False # avoids false data like 'strightforward'
-            
-        else:          
-            detection1 = True
-            
-    
-    return detection   
-
-
-
-"""
-def keyword_detection(sentence,keyword1,keyword2):
-
-    #vaccum = ' '
-
-    letters = string.ascii_lowercase
-    
-    #palabra_clave = "ola"
-    
-    n_keyword1 = len(list(keyword1)) 
-    
-    #frase = "!ola!!!! and i’m bi....." 
-    
-    ind1 = sentence.find(keyword1)
-    
-    if ind1 == -1:
-        
-        detection1 = False
-        
-        #return vaccum
-    
-        #print("NOT DETECTED FOR SURE")
-        
-        
-    
-    # la palabra clave puede estar al principio
-        
-    elif ind1 == 0:
-        
-        
-        
-        if sentence[ind1 + n_keyword1 ] in letters:
-            
-            detection1 = False
-            
-            #return vaccum
-                
-            #print("not detected")
-                
-                
-        else:
-                
-            detection1 = True
-            
-            #return keyword
-                
-            #print('detected')
-        
-        
-    else:
-        
-        
-    
-        if sentence[ind1-1] in letters or sentence[ind1 + n_keyword1 ] in letters:
-            
-            detection1 = False
-            
-            #return vaccum
-            
-            #print("not detected")
-            
-        else:
-            
-            detection1 = True
-            
-            #return keyword
-            
-            #print("detected")
-    
-    
-    # second category keyword        
-            
-    n_keyword2 = len(list(keyword2)) 
-    
-    #frase = "!ola!!!! and i’m bi....." 
-    
-    ind2 = sentence.find(keyword2)
-    
-    if ind2 == -1:
-        
-        detection2 = False
-        
-        #return vaccum
-    
-        #print("NOT DETECTED FOR SURE")
-        
-        
-    
-    # la palabra clave puede estar al principio
-        
-    elif ind2 == 0:
-        
-        
-        
-        if sentence[ind2 + n_keyword2 ] in letters:
-            
-            detection2 = False
-            
-            #return vaccum
-                
-            #print("not detected")
-                
-                
-        else:
-                
-            detection2 = True
-            
-            #return keyword
-                
-            #print('detected')
-        
-        
-    else:
-        
-        
-    
-        if sentence[ind2-1] in letters or sentence[ind2 + n_keyword2 ] in letters:
-            
-            detection2 = False
-            
-            #return vaccum
-            
-            #print("not detected")
-            
-        else:
-            
-            detection2 = True
-            
-            #return keyword
-            
-            #print("detected")
-    
-        
-    
-    
-    if detection1 == True and detection2 == True:
-        
-        detection = True
-        
-    else:
-        
+    if ind == -1:          
         detection = False
     
+        
+    elif ind == 0:  #possible match at the beggining
+        
+        if sentence[ind + n_keyword ] in letters: 
+            detection = False # avoids false data like 'strightforward'
+            
+        else:                
+            detection = True
+            
+    else:
     
-    return detection   
-"""
-
-
-#%% PROTOCOL 2 : USING'regular expressions'    
+        if sentence[ind-1] in letters or sentence[ind + n_keyword ] in letters:
+            detection =  False # avoids false data like 'strightforward'
+            
+        else:          
+            detection = True
+            
+    
+    return detection    
     
     
     
