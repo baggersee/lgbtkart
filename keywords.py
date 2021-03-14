@@ -1,57 +1,78 @@
-"""
-Aqui vamos a poner todas las palabras clave que puedan indentificarse 
-en las respestas como orientaciones sexuales o personajes
-
-Toy example: aun no lo pongo todo con toda la generalidad
-
-"""
+# SEXUAL ORIENTATIONS AND CHARACTERS KEYWORDS
+# we take into account that there are several ways to refer to a certain orientation/character
+# using dictionaries
 
 
-# ORIENTACIONES SEXUALES: hetero,gay ,lesbiana,bisexual, asexual
-# tenemos en cuenta que puede haber varias formas de referirse a una orientacion
-# no me preocupo por si hay mayusuculas porque se puede homogenizar todo con lower()
+characters = {}
 
-heteros = ['straight','hetero']
+characters['Baby Daisy'] = ['baby daisy']
+characters['Baby Luigi'] = ['baby daisy']
+characters['Baby Mario'] = ['baby mario']
+characters['Baby Peach'] = ['baby peach']
+characters['Baby Rosalina'] = ['baby rosalina']
+characters['Birdo'] = ['birdo']
+characters['Baby Daisy'] = ['Baby Daisy']
+characters['Bowser'] = ['bowser']
+characters['Bowser Jr'] = ['bowser jr','small bowser','mini bowser']
+characters['Cat Peach'] = ['cat peach']
+characters['Princess Daisy'] = ['daisy']
+characters['Diddy Kong'] = ['diddy kong']
+characters['Donkey Kong'] = ['donkey kong']
+characters['Donkey Kong Jr'] = ['donkey kong jr']
+characters['Dry Bones'] = ['dry bones','bones']
+characters['Dry Bowser'] = ['dry bowser']
+characters['Funky Kong'] = ['funky kong','funky']
+characters["Gold Mario"] =  ["gold mario"]
+characters["Honey Queen"] =  ["honey queen", "bee"]
+characters["Iggy Koopa"] = ["iggy koopa", "iggy"]
+characters["Inkling Boy"] =  ["inkling boy", "boy inkling", "male inkling", "inkling male"]
+characters["Inkling Girl"] =  ["inkling girl", "girl inkling", "inkling female", "female, inkling"]
+characters["Isabelle"] = ["isabelle", "doggo"]
+characters["King Boo"] = ["king boo", "ghost", "boo"]
+characters["Koopa Troopa"] = ["koopa troopa", "troopa", "koopa"]
+characters["Lakitu"] = ["lakitu"]
+characters["Larry Koopa"] = ["larry koopa", "larry"]
+characters["Lemmy Koopa"]= ["lemmy koopa", "lemmy"]
+characters["Link"] = ["link"]
+characters["Champion Link"] = ["champion link"]
+characters["Ludwig"] = ["ludwig"]
+characters["Luigi"]= ["luigi"]
+characters["Mario"]= ["mario"]
+characters["Metal Mario"] = ["metal mario"]
+characters["Mii"]= ["mii"]
+characters["Morton"] = ["morton"]
+characters["Paratroopa"] = ["paratroopa", "para troopa"]
+characters["Pauline"]= ["pauline"]
+characters["Musician Mario"]= ["musician mario"]
+characters["Princess Peach"]= ["peach", "peachy"]
+characters["Petey Piranha"]=["petey piranha", "piranha", "petey"]
+characters["Pink Gold Peach"]= ["pink gold peach", "pink peach", "gold peach"]
+characters["R.O.B."]= ["r.o.b.", "rob"]
+characters["Rosalina"] = ["rosalina"]
+characters["Roy Koopa"] = ["roy koopa", "roy"]
+characters["Shy Guy"]= ["shy guy", "shyguy"]
+characters["Tanooki Mario"] =  ["tanooki mario", "tanooky"]
+characters[ "Toad"] =  ["toad"]
+characters[ "Toadette"] = ["toadette"]
+characters[ "Villager Boy"] =  ["villager boy", "villager"]
+characters[ "Villager Girl"] =  ["villager girl", "villager"]
+characters["Waluigi"] = ["waluigi"]
+characters["Wario"] =  ["wario"]
+characters["Wendy O. Koopa"] = ["wendy o. koopa", "wendy"]
+characters["Wiggler"] =  ["wiggler"]
+characters["Yoshi"] = ["yoshi", "dinosaur"]
+characters["Peachette"] = ["peachette"]
+characters["Kimono Peach"] = ["kimono peach"]
+characters["Hakama Mario"] = ["hakama mario", "hakama"]
 
-gays = ['gay','homo']
 
-lesbians = ['lesbian']
+orientations = {}
 
-bisexuals = ['bisexual','pansexual','bi']
-
-asexuals = ['asexual']
-
-orientations_list = [heteros,gays,lesbians,bisexuals,asexuals]
-
-
-# PERSONAJES
-# de momento asumo que solo hay una manera de referirse a ellos
-
-mario = ['mario']
-
-luigi = ['luigi']
-
-peach = ['peach','princess peach']
-
-daisy = ['daisy','princess daisy']
-
-rosalina = ['rosalina']
-
-tanooki =['tanooki mario','tanooki']
-
-cat = ['cat peach']
-
-yoshi = ['yoshi']
-
-toad = ['toad']
-
-koopa = ['koopa troopa','koopa','troopa']
-
-shy = ['shy guy','shy']
-
-
-
-characters_list = [mario, luigi, peach, daisy,rosalina,tanooki,cat,yoshi,koopa,shy]
+orientations["lesbian"] = ["lesbian"]
+orientations["gay"] = ["gay","homo","homosexual"]
+orientations["bisexual"] = ["bisexual","bi","pansexual","pan"]
+orientations["asexual"] = ["asexual","ace"]
+orientations["hetero"] = ["straight","hetero","het","str8"] 
                    
                   
 
