@@ -1,11 +1,4 @@
- 
-#%%
-"""
-PROTOCOL 1
-
-The detection is valid when there are no alphabetic characters at the begining 
- or at the end of the hypothetical detection.
- 
+""" 
 SENTENCES THT CAN GET WORNG DATA:
     
 'I am not gay but straight'
@@ -13,19 +6,39 @@ SENTENCES THT CAN GET WORNG DATA:
 'i’m bi (but also ????) and i main the pretty princess that wears orange idr her name'
 'I'm hetro, and use toad': bad spelling!
 'Bisexual and D R Y  B O N E S'
+"""
+def keyword_detection(sentence,keyword):
+
+    letters = string.ascii_lowercase # import the alphabet in lowercase    
+    n_keyword1 = len(list(keyword)) # i think its not needed to convert it into a list    
+    ind = sentence.find(keyword) # first index of a possible match
     
+    if ind1 == -1:          
+        detection1 = False
+    
+        
+    elif ind1 == 0:  #possible match at the beggining
+        
+        if sentence[ind1 + n_keyword1 ] in letters: 
+            detection1 = False # avoids false data like 'strightforward'
+            
+        else:                
+            detection1 = True
+            
+    else:
+    
+        if sentence[ind1-1] in letters or sentence[ind1 + n_keyword1 ] in letters:
+            detection1 =  False # avoids false data like 'strightforward'
+            
+        else:          
+            detection1 = True
+            
+    
+    return detection   
+
 
 
 """
-
-#palabra_clave1 = 'hetero'
-
-#palabra_clave2 = 'browser'
-
-#answer = 'I am hetero and i like browser '
-
-import string
-
 def keyword_detection(sentence,keyword1,keyword2):
 
     #vaccum = ' '
@@ -169,11 +182,8 @@ def keyword_detection(sentence,keyword1,keyword2):
         detection = False
     
     
-    return detection
-    
-#a = keyword_detection(answer,palabra_clave)
-
-#print(a)
+    return detection   
+"""
 
 
 #%% PROTOCOL 2 : USING'regular expressions'    
