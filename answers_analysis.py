@@ -2,22 +2,10 @@
 
 #%% STEP 1: Importing the answers and storing them in a list
 
-file_answers = open('data.txt','r', encoding="utf8" )
-
-list_answers = []
-
-N_col = 944
-
-for j in range(N_col):
+with open('data.txt','r', encoding="utf8" ) as file_answers:
+    list_answers = file_answers.read().split("\n")
     
-    answer = file_answers.readline().lower()
-    
-    list_answers.append(answer)
-        
-print(list_answers)
-
-file_answers.close()        
-
+file_answers.close()
 
 #%% STEP 2: Getting the data
 
