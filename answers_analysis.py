@@ -1,4 +1,6 @@
 import pandas as pd
+import string
+from detection_keys import keyword_detection
 from keywords import characters,orientations
 
 #%% STEP 1: Importing the answers and storing them in a list
@@ -12,36 +14,22 @@ file_answers.close()
 
 #%% STEP 2: Getting the data
 
+# initializing the table with all entries equal to zero
 data = pd.DataFrame(0, index=list(characters), columns=list(orientations))
 
-
-"""
-
-from keywords import orientations_list, characters_list
-
-from detection_keys import keyword_detection
-
-n = len(list_answers)
-
-list_data = []
-
-for j in range(n):
+for answer in list_answers:
     
-    for orientation in orientations_list:
+    for ori_key , ori_keyword in orientations.items():
         
-        for orientation_word in orientation:
+        if any(keyword_detection(answer,ori) for ori in ori_keyword):
+            ori_detected = ori_key
             
-            for character in characters_list:
+            for char_key , char_keyword in characters.items():
                 
-                for character_word in character:
-                
-                    if keyword_detection(list_answers[j],orientation_word,character_word) == True:
-                        
-                        list_data.append([orientation_word,character_word])
+                if any(keyword_detection(answer,char) for char in char_keyword):
+                    char_detected = char_key
+                    data.at[char_detected,ori_detected] = data.at[char_detected,ori_detected] + 1
 
-
-n = len(list_data)
-"""
 #%% STEP 3: Histogram
 
 
