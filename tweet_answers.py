@@ -3,44 +3,38 @@
 #%% FASE 1
 
 """
-Asumo que vamos a recibir un archivo .txt con todas las respuestas
+We are going to work from a .txt file with all the answers to the tweet.
 
-Asumo que es posible hacer una lista con todas las respuestas
-A esa hipotetica lista la llamo 'lista_respuestas'
+Aims: 
 
+1) construct a list with all the answers: 'list_answers'
 
-Objetivo: buscar las palabras clave (sexualidad y personaje) en cada respuesta
-          y meterlas en un diccionario.
-          
-          filtrar las respuestas no validas.
-          una respuesta es no valida si no tiene las dos infos.
-
+2) search for the key words (sexual orientation and mario kart character)
+for each answer.
 
 """
 
-# importamos las listas con las palabras clave que vamos a buscar
+# import the list with the specified keywords
 
 from keywords import orientations, characters
 
 
-# ejemplo de posibles respuestas
+# example of possible list with the answers
+#(later we will have to extract it from a .txt file)
 
-lista_respuestas = ['i am hetero mario','straight and browser','lesbian i like luigi','asexual or mario','bisexual and peach','bisexual nd luigi','gay browser ','homo peach','browser','mario hetero','hetero luigi','hetero mario','hetero mario fun','hetero peach','hetero browser']
+list_answers = ['i am hetero mario','i like potatoes','straight and browser','lesbian i like luigi','asexual or mario','bisexual and peach','bisexual nd luigi','gay browser ','homo peach','browser','mario hetero','hetero luigi','hetero mario','hetero mario fun','hetero peach','hetero browser']
 
 
 
-# inicializamos el diccionario
+# inicialize the dictionary
 
-dictio = {} 
+dictio_data = {} 
 
 # obtenemos cuantas respuestas tenemos:
 
-    
-from pruebas2_tweet import list_respuestas
 
-lista_respuestas = list_respuestas
 
-n = len(lista_respuestas)
+n = len(list_answers)
 
 
 # vamos bucando en casa respuesta las palabras clave y filtrando las respuesas que 
@@ -51,22 +45,22 @@ n = len(lista_respuestas)
 
 for j in range(n):
     
-    dictio[f'dato {j}'] = ["",""]
+    dictio_data[f'dato {j}'] = ["",""]
     
     for orientacion in orientations:
         
         for palabra in orientacion:
         
-            if palabra in lista_respuestas[j]:
+            if palabra in list_answers[j]:
                 
-                 dictio[f'dato {j}'][0] = palabra
+                 dictio_data[f'dato {j}'][0] = palabra
              
     
     for palabra in characters:
         
-        if palabra in lista_respuestas[j]:
+        if palabra in list_answers[j]:
             
-            dictio[f'dato {j}'][1] = palabra
+            dictio_data[f'dato {j}'][1] = palabra
             
     
     """  
@@ -112,9 +106,9 @@ for k in range(5):
     for j in range(n):
         
         
-        if dictio[f'dato {j}'][0] in orientations[k]: 
+        if dictio_data[f'dato {j}'][0] in orientations[k]: 
             
-            lista_total[k].insert( 0, dictio[f'dato {j}'][1] )
+            lista_total[k].insert( 0, dictio_data[f'dato {j}'][1] )
             
             
            

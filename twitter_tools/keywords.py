@@ -1,15 +1,9 @@
-"""
-Aqui vamos a poner todas las palabras clave que puedan indentificarse 
-en las respestas como orientaciones sexuales o personajes
 
-Toy example: aun no lo pongo todo con toda la generalidad
-
-"""
+# SEXUAL ORIENTATION: hetero,gay ,lesbian,bisexual, asexual
+# we take into account that there are several ways to refer to a certain orientation
 
 
-# ORIENTACIONES SEXUALES: hetero,gay ,lesbiana,bisexual, asexual
-# tenemos en cuenta que puede haber varias formas de referirse a una orientacion
-# no me preocupo por si hay mayusuculas porque se puede homogenizar todo con lower()
+
 
 heteros = ['straight','hetero']
 
@@ -24,8 +18,9 @@ asexuals = ['asexual']
 orientations_list = [heteros,gays,lesbians,bisexuals,asexuals]
 
 
-# PERSONAJES
-# de momento asumo que solo hay una manera de referirse a ellos
+# CHARACTERS
+# for the moment, just a few
+
 
 mario = ['mario']
 
